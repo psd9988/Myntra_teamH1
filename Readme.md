@@ -1,1 +1,1 @@
-<img src="output.png" alt="Image">
+<img src="outputMyntra.png" alt="Image">
