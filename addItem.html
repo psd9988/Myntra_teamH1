@@ -19,6 +19,8 @@
             margin: 100px 0 0 0;
         } 
 
+
+
     
         .ratingsTopContainer, .priceContainer, .sizeTextContainer, .sizeSelectionContainer, .addToBagAndWishlistBtnsContainer{
             display: flex;
@@ -1227,26 +1229,38 @@ window.addEventListener('load', addImagesToContainer(itemImages, buyImageContain
         function addToCart(item) {
             addItemId += 1;
         let selectedItem = document.createElement('div');
+        selectedItem.style.display = 'flex';
+        selectedItem.style.margin = '100px 0 0 0';
+        selectedItem.style.flexDirection = 'column';
+        selectedItem.style.alignItems = 'center';
         selectedItem.classList.add('cartImg');
         selectedItem.setAttribute('id', addItemId);
         let img = document.createElement('img');
         img.setAttribute('src', item.children[0].children[0].currentSrc);
         let title = document.createElement('div');
         title.innerText = item.children[1].children[0].innerText;
+        title.style.fontWeight = 'bolder';
+        title.style.fontSize = '22px';
+        title.style.margin = '0 0 10px 0';
+        
         let label = document.createElement('div');
         label.innerText = item.children[1].children[1].innerText;
+        label.style.color = 'grey';
+        label.style.margin = '0 0 10px 0';
         let select = document.createElement('span');
         select.innerText = item.children[1].children[6].value;
         label.append(select);
         let delBtn = document.createElement('button');
+        delBtn.style.backgroundColor = '#ff3e6c';
+        delBtn.style.height = '25px';
+        delBtn.style.width = '100px';
+        delBtn.style.borderRadius = '5%'
+        delBtn.style.border = 'solid black 1px';
+        delBtn.style.margin = '0 0 10px 0';
+        delBtn.style.color = 'white';
         delBtn.innerText = 'Remove Item';
         delBtn.setAttribute(`onclick`, `del(${addItemId})`);
-        // let cartItems = document.getElementById('title');
-        // selectedItem.append(img);
-        // selectedItem.append(title);
-        // selectedItem.append(label);
-        // selectedItem.append(delBtn);
-        // cartItems.append(selectedItem);
+        let horizontalLine = document.createElement('hr');
 
         let cartItems = document.createElement('div');
         cartItems.id = cartItems + addItemId;
@@ -1255,7 +1269,6 @@ window.addEventListener('load', addImagesToContainer(itemImages, buyImageContain
         selectedItem.append(label);
         selectedItem.append(delBtn);
         cartItems.append(selectedItem);
-
         myArr.push(cartItems.innerHTML);
  
 
